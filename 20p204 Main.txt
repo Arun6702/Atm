@@ -1,0 +1,98 @@
+﻿package arun;
+
+
+import java.io.PrintStream;
+import java.util.*;
+public class MAIN {
+         static List<customerDetails> detail=new ArrayList<>();
+        static Scanner sc=new Scanner(System.in);
+         static loadCash a12=new loadCash();
+        public static void main(String[] args) {
+                customerdetails();
+                a12.upadate_cash(20, 100, 100);
+                int choice;
+                do {
+                        System.out.println("1.Load Cash to ATM");
+                        System.out.println("2.Balance in ATM");
+                        System.out.println("3.Details of the customer");
+                        System.out.println("4.Operations in ATM");
+                        System.out.println("Enter Choices to do Operation");
+                        choice=sc.nextInt();
+                        switch(choice) {
+                        case 1:
+                            loadcash();
+                                break;
+                        case 2:
+                                displayatmdenomenation();
+                                break;
+                        case 3:
+                                displaydetails();
+                                break;
+                         case 4:
+                                 atmoperation();
+                                 break;
+                         case 5:
+                            break;
+                          default:
+                                  System.out.println("Enter correct choice");
+                                  
+                                  break;
+                        }
+                }while(choice!=5);
+                
+        }
+static void atmoperation() {
+                AtmOperations ob=new AtmOperations(); 
+        }
+        static void loadcash() {
+                System.out.println("----------Load to Cash---------");
+            System.out.println("Enter note count->");
+            System.out.println("Enter count_2000");
+            int _2000=sc.nextInt();
+            System.out.println("Enter count_500");
+            int _500=sc.nextInt();
+            System.out.println("Enter count_100");
+            int _100=sc.nextInt();
+            a12.upadate_cash(_2000,_500,_100);
+            displayatmdenomenation();
+        }
+        static void customerdetails() {
+                customerDetails a1=new customerDetails(101,"Ram",2343,25234);
+                customerDetails a2=new customerDetails(102,"Hari",5432,34123);
+                customerDetails a3=new customerDetails(103,"Suga",7854,26100);
+                customerDetails a4=new customerDetails(104,"Vi2"
+                                + "pul",2345,80000);
+                customerDetails a5=new customerDetails(105,"laks",1907,103400);
+        detail.addAll(Arrays.asList(a1,a2,a3,a4,a5));
+        }
+    static void displaydetails() {
+            System.out.println("------------------------Customer Details-----------------------");
+                System.out.println("---------------------------------------------------------------");  
+                System.out.printf("%8s %20s %12s %16s", "Acc No", "Account Holder", "Pin Number", "Account Balance");  
+                System.out.println();  
+                System.out.println("---------------------------------------------------------------");   
+                for(customerDetails customerdeatail: detail)  
+                {  
+                PrintStream format = System.out.format("%7s %14s %14s %16s",customerdeatail.getAccNo(), customerdeatail.getAccName(), customerdeatail.getPin(), customerdeatail.getBalance());  
+                System.out.println();  
+                }  
+                System.out.println("----------------------------------------------------------------");
+                System.out.print("\n");
+        }
+    protected static void displayatmdenomenation() {
+            System.out.println("------------------Atm Balance-------------------");
+                System.out.println("---------------------------------------------");  
+                System.out.printf("%8s %12s %12s ", "Denomination", "Number", "Value");  
+                System.out.println();  
+                System.out.println("---------------------------------------------");  
+                System.out.format("%7s %16s %12s ","2000", a12.getCount_2000(),a12.getTotal_2000());
+                System.out.println();
+                System.out.format("%7s %16s %12s ","500", a12.getCount_500(),a12.getTotal_500());  
+                System.out.println();
+                System.out.format("%7s %16s %12s ","100", a12.getCount_100(),a12.getTotal_100()); 
+                System.out.println();
+                System.out.println("---------------------------------------------- ");  
+                System.out.print("\n");
+    }
+        
+}

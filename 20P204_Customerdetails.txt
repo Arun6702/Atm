@@ -1,0 +1,60 @@
+﻿import java.text.DateFormat.Field;
+class customerDetails extends MAIN{
+        int accNo;
+        String AccName;
+        int Pin;
+        int Balance;
+        public customerDetails(int accNo, String AccName, int Pin, int Balance) {
+                super();
+                this.accNo = accNo;
+                this.AccName = AccName;
+                this.Pin = Pin;
+                this.Balance = Balance;
+        }
+        public int getAccNo() {
+                return accNo;
+        }
+        public void setAccNo(int accNo) {
+                this.accNo = accNo;
+        }
+        public String getAccName() {
+                return AccName;
+        }
+        public void setAccName(String AccName) {
+                this.AccName = AccName;
+        }
+        public int getPin() {
+                return Pin;
+        }
+        public void setPin(int Pin) {
+                this.Pin = Pin;
+        }
+        public int getBalance() {
+                return Balance;
+        }
+        public void setBalance(int Balance) {
+                this.Balance = Balance;
+        }
+        public void updateBalance(int amt) {
+                Balance-=amt;
+                return;
+        }
+        void customercashupdate(customerDetails obj,int amt,int _2000count,int _500count,int _100count) {
+                if(amt<=obj.Balance) 
+                {
+                    if(((loadCash) a12).update_withdrawl(amt,_2000count,_500count,_100count)) {
+                      obj.updateBalance(amt);
+                    } 
+                    else {
+                            System.out.println("Sorry Atm Balance Is Low");
+                    }
+            }
+            else {
+                    System.out.println("Sorry Your Account Balance Is Low");
+            }
+                return;
+        }
+        public String toString() {
+                return  accNo + AccName + Pin + Balance;
+        }        
+}
